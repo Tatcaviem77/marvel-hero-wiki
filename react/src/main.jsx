@@ -8,8 +8,6 @@ import { RouterProvider } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-          {/* <ContextProvider> */}
             <RouterProvider router={router} />
-        {/* </ContextProvider> */}
   </React.StrictMode>
 )
