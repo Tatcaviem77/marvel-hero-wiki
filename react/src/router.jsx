@@ -3,6 +3,7 @@ import NotFound from "./views/NotFound";
 import Admin from "./views/Admin";
 import TableHero from "./components/TableHero";
 import HeroForm from "./views/HeroForm";
+import CreateHero from "./views/CreateHero";
 
 
 const router = createBrowserRouter([
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
             {
                 path: "/admin/:id",
                 element: <HeroForm />,
+            },
+            {
+                path: "/admin/create",
+                element: <CreateHero />,
             },
         ],
     },
