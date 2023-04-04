@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import NotFound from "./views/NotFound";
 import Admin from "./views/Admin";
 import TableHero from "./components/TableHero";
+import HeroForm from "./views/HeroForm";
+
 
 const router = createBrowserRouter([
     {
@@ -11,6 +13,10 @@ const router = createBrowserRouter([
             {
                 index: "/admin",
                 element: <TableHero />,
+            },
+            {
+                path: "/admin/:id",
+                element: <HeroForm />,
             },
         ],
     },
