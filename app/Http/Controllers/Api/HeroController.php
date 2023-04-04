@@ -23,7 +23,9 @@ class HeroController extends Controller
      */
     public function store(StoreHeroRequest $request)
     {
-        //
+        $data = $request->validated();
+        $hero = Hero::create($data);
+        return response(new HeroResource($hero), 201);
     }
 
     /**
@@ -31,7 +33,7 @@ class HeroController extends Controller
      */
     public function show(Hero $hero)
     {
-        //
+        return new HeroResource($hero);
     }
 
     /**
