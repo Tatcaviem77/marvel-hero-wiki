@@ -9,16 +9,17 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useRef } from "react";
-
-
+import axiosClient from "../axios-client";
+import { useStateContext } from "../contexts/ContextProvider";
+import { useNavigate, Navigate } from "react-router-dom";
 
 const theme = createTheme();
 
-
 export default function Login() {
-
+    const navigate = useNavigate();
     const emailRef = useRef();
     const passwordRef = useRef();
+    const { token, setUser, setToken } = useStateContext();
 
     const handleLogin = async (event) => {
         event.preventDefault();
@@ -26,11 +27,23 @@ export default function Login() {
             email: emailRef.current.value,
             password: passwordRef.current.value,
         };
-
+        await axiosClient
+            .post("/login", payload)
+            .then(({ data }) => {
+                setUser(data.user);
+                setToken(data.token);
+            })
+            .catch((err) => {
+                console.error(err);
+            });
     };
 
+    if (token) {
+        navigate("/admin");
+    }
+
     return (
-       <div> <ThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
@@ -80,6 +93,5 @@ export default function Login() {
                 </Box>
             </Container>
         </ThemeProvider>
-        </div>
     );
 }
