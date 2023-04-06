@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 import { useNavigate, useParams } from "react-router-dom";
 import * as React from "react";
 import { useState } from "react";
+import axiosClient from "../axios-client";
 
 export default function HeroForm() {
     const navigate = useNavigate();
@@ -17,13 +18,31 @@ export default function HeroForm() {
 
     if (id) {
         React.useEffect(() => {
-            
+            axiosClient
+                .get(`/heros/${id}`)
+                .then((data) => {
+                    setHero(data.data);
+                    console.log(data);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         }, []);
     }
 
     const onSubmit = async (ev) => {
         ev.preventDefault();
-        
+        await axiosClient
+            .put(`/heros/${hero.id}`, hero)
+            .then(() => {
+                navigate("/admin");
+            })
+            .catch((err) => {
+                const response = err.response;
+                if (response && response.status === 422) {
+                    setErrors(response.data.errors);
+                }
+            });
     };
 
     return (

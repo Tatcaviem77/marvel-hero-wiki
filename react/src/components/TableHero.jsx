@@ -7,13 +7,17 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useEffect } from "react";
+import axiosClient from "../axios-client";
 import { Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 export default function TableHero() {
     const [heros, setHeros] = React.useState([]);
     const navigate = useNavigate();
-    useEffect(() => {       
+    useEffect(() => {
+        axiosClient.get("/heros").then(({ data }) => {
+            setHeros(data.data);
+        });
     });
 
     return (
