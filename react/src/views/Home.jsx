@@ -9,17 +9,10 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import SearchAppBar from "../components/SearchAppBar";
 import Footer from "../components/Footer";
-<<<<<<< HEAD
 // import { Navigate, useNavigate } from "react-router-dom";
 // import { useStateContext } from "../contexts/ContextProvider";
 // import Pagination from "@mui/material/Pagination";
 // import axiosClient from "../axios-client";
-=======
-import { Navigate, useNavigate } from "react-router-dom";
-import { useStateContext } from "../contexts/ContextProvider";
-import Pagination from "@mui/material/Pagination";
-import axiosClient from "../axios-client";
->>>>>>> develop_Detail
 import { Box, Stack, Button } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
@@ -128,11 +121,7 @@ export default function Home() {
             ))}
         </>
     );
-<<<<<<< HEAD
-
-=======
    
->>>>>>> develop_Detail
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
