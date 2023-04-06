@@ -1,13 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import router from "./router";
+import React from "react";
 import { RouterProvider } from "react-router-dom";
-// import { ContextProvider } from "./contexts/ContextProvider";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import router from "./router";
+import { ContextProvider } from "./contexts/ContextProvider";
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+        <ContextProvider>
             <RouterProvider router={router} />
-  </React.StrictMode>
-)
+        </ContextProvider>
+    </React.StrictMode>
+);
