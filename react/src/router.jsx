@@ -1,10 +1,22 @@
 import { createBrowserRouter } from "react-router-dom";
-import Admin from "./views/Admin";
-import TableHero from "./components/TableHero";
-import HeroForm from "./views/HeroForm";
-import CreateHero from "./views/CreateHero";
 import Login from "./views/Login";
+import Detail from "./views/Detail";
+import NotFound from "./views/NotFound";
+import Home from "./views/Home";
+import Admin from "./views/Admin";
+import HeroForm from "./views/HeroForm";
+import TableHero from "./components/TableHero";
+import CreateHero from "./views/CreateHero";
+
 const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Home />,
+    },
+    {
+        path: "/detail/:id",
+        element: <Detail />,
+    },
     {
         path: "/login",
         element: <Login />,
@@ -12,7 +24,7 @@ const router = createBrowserRouter([
     {
         path: "/admin",
         element: <Admin />,
-        children: [           
+        children: [
             {
                 index: "/admin",
                 element: <TableHero />,
@@ -27,9 +39,11 @@ const router = createBrowserRouter([
             },
         ],
     },
+
     {
         path: "*",
         element: <NotFound />,
     },
 ]);
+
 export default router;
