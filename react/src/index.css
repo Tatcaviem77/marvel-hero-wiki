@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7cd557f3efe1844a064de6b254d8171eaed69f88
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,6 +20,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 1280px;
+<<<<<<< HEAD
 }
 =======
 >>>>>>> develop_Detail
+=======
+}
+>>>>>>> 7cd557f3efe1844a064de6b254d8171eaed69f88
